@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文主要介绍如何将Discourse作为SAML验证服务器。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-01-02T16:19:59.000Z">
-<meta property="article:modified_time" content="2022-01-02T17:30:46.202Z">
+<meta property="article:modified_time" content="2022-01-03T16:04:20.626Z">
 <meta property="article:author" content="Akarin">
 <meta property="article:tag" content="Discourse">
 <meta property="article:tag" content="SAML">
@@ -379,6 +379,7 @@
 <p>找到’technicalcontact_email’ ，改成你的邮箱；</p>
 <p>找到 ‘language.default’，改成’zh’（也可以改成你的语言）;</p>
 <p>找到’timezone’，将 null 改成 ‘Asia/Shanghai’ （如果你在中国），或者改成你所在的地区；</p>
+<p>最后，找到’enable.saml20-idp’，将其改为’true’，启动SAML IDP功能。</p>
 <p>然后打开 https://你的域名/simplesaml ，理论上它就能访问了。</p>
 <p>然后安装composer。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -r &quot;copy(&#x27;https://getcomposer.org/installer&#x27;, &#x27;composer-setup.php&#x27;);&quot;</span><br></pre></td></tr></table></figure>
@@ -415,7 +416,7 @@
 <p>最后，在metadata/saml20-idp-hosted.php里，编辑你的证书路径和修改你的认证方式即可。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$metadata[&#x27;__DYNAMIC:1__&#x27;] = [</span><br><span class="line">    /*</span><br><span class="line">     * The hostname for this IdP. This makes it possible to run multiple</span><br><span class="line">     * IdPs from the same configuration. &#x27;__DEFAULT__&#x27; means that this one</span><br><span class="line">     * should be used by default.</span><br><span class="line">     */</span><br><span class="line">    &#x27;host&#x27; =&gt; &#x27;__DEFAULT__&#x27;,</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * The private key and certificate to use when signing responses.</span><br><span class="line">     * These are stored in the cert-directory.</span><br><span class="line">     */</span><br><span class="line">    &#x27;privatekey&#x27; =&gt; &#x27;你的pem路径&#x27;,</span><br><span class="line">    &#x27;certificate&#x27; =&gt; &#x27;你的crt路径&#x27;,</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">     * The authentication source which should be used to authenticate the</span><br><span class="line">     * user. This must match one of the entries in config/authsources.php.</span><br><span class="line">     这里需要将认证方法改成discourse-sso</span><br><span class="line">     */</span><br><span class="line">    &#x27;auth&#x27; =&gt; &#x27;discourse-sso&#x27;,</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
 
-<p>现在你的SimpleSAMLphp以可使用Discourse作为用户数据库后端，提供标准SAML登录协议。</p>
+<p>现在你的SimpleSAMLphp以可使用Discourse作为用户数据库后端，作为SAML IDP，提供标准SAML登录协议。</p>
 <p>IDP实体标识符：https://你的域名/simplesaml/saml2/idp/metadata.php</p>
 <p>URL目标（用于SP发送验证请求）：https://你的域名/simplesaml/saml2/idp/SSOService.php</p>
 <p>X509证书：https://你的域名/simplesaml/module.php/saml/idp/certs.php/idp.crt</p>
