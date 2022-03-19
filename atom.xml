@@ -6,7 +6,7 @@
   <link href="https://www.akarin.moe/atom.xml" rel="self"/>
   
   <link href="https://www.akarin.moe/"/>
-  <updated>2022-03-19T17:46:49.321Z</updated>
+  <updated>2022-03-19T17:51:15.802Z</updated>
   <id>https://www.akarin.moe/</id>
   
   <author>
@@ -21,28 +21,23 @@
     <link href="https://www.akarin.moe/2022/03/20/Australia-WiFi-Calling/"/>
     <id>https://www.akarin.moe/2022/03/20/Australia-WiFi-Calling/</id>
     <published>2022-03-19T17:10:21.000Z</published>
-    <updated>2022-03-19T17:46:49.321Z</updated>
+    <updated>2022-03-19T17:51:15.802Z</updated>
     
     <content type="html"><![CDATA[<p>熟悉澳洲御三家运营商的可能了解一点，截至2022年3月20日，御三家的情况如下：<br>Telstra：</p><ul><li>PrePaid eSIM不可用 （由于所谓的系统升级）</li><li>PrePaid国际漫游不可用 （由于所谓的系统升级）</li><li>PrePaid VoWiFi可用（且海外IP同样可用）</li><li>没有很低价的套餐</li></ul><p>Optus：</p><ul><li>PrePaid eSIM可用</li><li>PrePaid国际漫游可用</li><li>PrePaid VoWiFi可用（不可用于海外）</li><li>有每日仅1刀的eSIM套餐</li></ul><p>Vodafone AU：</p><ul><li>PrePaid eSIM可用</li><li>PrePaid国际漫游可用</li><li>PrePaid VoWiFi可用（不可用于海外）</li><li>有每年仅10刀的eSIM套餐</li></ul><p>我们简单复盘一下这三家：<br>Telstra能直接海外VoWiFi，但是暂时不支持实体卡切换eSIM。且没有很低价的保号套餐。<br>Optus和Vodafone AU能海外漫游且都能正常实体卡切换eSIM，并且Optus支持手机直接开通eSIM功能。<br>但与Vodafone AU比起来，Optus的每日1刀套餐会过期，且理论上是3个月后还是6个月后Optus会收回这个号码。相比之下，Vodafone AU一年10刀的保号就显得很稳。</p><p>现在我的情况是，人在中国，且需要用到VoWiFi用于打澳洲电话，甚至利用VoWiFi直接拨打海外电话，套餐内包含的话是直接免费的。</p><p>你要问我在中国连回澳洲打VoWiFi电话支持不支持，我说支持，我就明确告诉你这一点。但你们又不高兴，一定要问我怎么弄（</p><p>首先，OSI Model分为七层，第七层为应用层（Application Layer），第三层为网络层（Network Layer）。<br>所有Socks5，HTTP/HTTPS，什么什么mess之类的，或者木马之类的协议，都是跑在第七层，它们属于应用层的部分（Application Layer）。<br>第三层的都是IPSec，OpenVPN，WireGuard之类的，这些是跑在第三层的网络层（Network Layer）的。</p><p>我为什么要提这一点，因为我现在是UDP VoIP，我怎么能不跑在第三层的网络层？？？网络的世界，要按照OSI Model去运转，去连接……</p><p>一言以蔽之就是，VoWiFi必须跑在第三层才能连通，在第七层它是无法与运营商服务器进行协商的。</p><p>所以我们必须用VPN，而不是Proxy。也就是说，我们的选择必须是“VPN”，而不是”Proxy”。</p><p>所以，所有的第七层的代理工具都是不可用的！</p><p>好了扯了这么多我就直接告诉你怎么用WireGuard弄。</p><p>为什么不选OpenVPN/IPSec？首先是这俩吧基本上连不出去。其次是这俩配置贼nm麻烦……算了吧真的饶了我我只想打个电话。</p><p><strong>其次我强调一次，“WireGuard的安装和使用条件是比较苛刻的。因此我不建议在生产系统里安装和使用 WireGuard，除非你知道自己在做什么。” WireGuard直接作用于系统内核，所以你最好是开一个新的虚拟机或者什么小鸡去搞这个东西，它是需要修改Kernel的。</strong></p><p>开个澳洲小鸡，我用的Vultr，然后直接网上找个一键脚本，安装。</p><p>然后它会给你一个 client.conf 的文件，打开。</p><p>然后我的路由器用的AX3600，刷了OpenWRT（对，我强烈建议你专门有一个路由器搞这个事情），然后OpenWRT设置里选择网络-接口，新建接口，然后选择WireGuard VPN。</p><p>然后参考这篇文章：<a href="https://www.ioiox.com/archives/143.html">https://www.ioiox.com/archives/143.html</a></p><p>将 client.conf 里</p><p>[Interface] 的：<br>PrivateKey<br>Address</p><p>和</p><p>[Peer] 的：<br>PublicKey<br>Endpoint<br>AllowedIPs<br>PersistentKeepalive</p><p>根据教程填入对应的选项。</p><p>然后防火墙选项直接选择WAN。</p><p>保存，查看WireGuard选项。看看有没有连通。</p><p>最后打开 ip111.cn 这个测IP的网站，如果你发现你的IP已经是澳洲了，我们就离成功只差最后一步了。</p><p>iPhone的定位里关闭定位（后续成功了可只关闭WiFi通话的定位），关闭所有WiFi的自动连接，开启飞行模式，然后重启iPhone，连接这个土澳IP的WiFi，最后最后！！！蜂窝网络，点进去号码，关闭WiFi通话并重新打开WiFi通话。</p><p>这时候不出意外的话，右上角下拉，你就会发现WiFi Calling的标志了。</p><p>如果有任何问题欢迎在底下留言。Enjoy~</p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;熟悉澳洲御三家运营商的可能了解一点，截至2022年3月20日，御三家的情况如下：&lt;br&gt;Telstra：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;PrePaid eSIM不可用 （由于所谓的系统升级）&lt;/li&gt;
-&lt;li&gt;PrePaid国际漫游不可用 （由于所谓的系统升级）&lt;/li&gt;
-&lt;l</summary>
-      
+    <summary type="html">在海外通过隧道连接澳洲服务器并使用Optus或Vodafone AU的VoWiFi。</summary>
     
     
+    
+    <category term="Australia" scheme="https://www.akarin.moe/categories/Australia/"/>
+    
+    <category term="VoWiFi" scheme="https://www.akarin.moe/categories/Australia/VoWiFi/"/>
     
     
     <category term="Australia" scheme="https://www.akarin.moe/tags/Australia/"/>
     
     <category term="VoWiFi" scheme="https://www.akarin.moe/tags/VoWiFi/"/>
-    
-    <category term="[object Object]" scheme="https://www.akarin.moe/tags/object-Object/"/>
     
   </entry>
   
@@ -231,7 +226,7 @@
     <published>2019-04-04T17:38:01.000Z</published>
     <updated>2019-11-30T05:57:05.000Z</updated>
     
-    <content type="html"><![CDATA[<p>已经……好久没用过hexo写博客了……可能都已经快忘记怎么使用hexo了……</p><p>这几天在忙很多事情，更新护照，更新签证，新西兰计划，驾考……还有一堆需要置备的东西（x</p><p>之前我的护照丢了，所以我重新在悉尼大使馆补办了一本新的护照，于是我需要把我的新护照更新到我的澳洲签证上。<br>这个几乎已经是老生常谈了，但是其实也有一些值得一说的点——</p><p>首先，根据2019年4月5号的情况来看，把新护照更新到澳洲签证上有两种方法：</p><ol><li>使用澳洲移民局官方签证管理系统Immiaccount</li><li>填写929信息更新表格，并将表格与新旧护照信息一并发送至<a href="mailto:&#57;&#x32;&#57;&#64;&#104;&#111;&#109;&#x65;&#x61;&#102;&#102;&#97;&#105;&#114;&#115;&#x2e;&#x63;&#111;&#x6d;&#46;&#97;&#117;">&#57;&#x32;&#57;&#64;&#104;&#111;&#109;&#x65;&#x61;&#102;&#102;&#97;&#105;&#114;&#115;&#x2e;&#x63;&#111;&#x6d;&#46;&#97;&#117;</a></li></ol><p>先说后面一种。<br>929邮箱一直是个很神奇的存在——在一两年前更新护照的方法一种是immiaccount，另一种则是让你邮寄到移民局……这谁有这个功夫啊，但移民局邮箱作为一种特殊渠道，一直以半公开的形式流传于民间。直到这一两年，澳洲重组政府部门，组建内政部——这个部门其实更是个神奇的存在，一手遮天，大权独揽……不过不展开太多。于是，移民局邮箱便正式替代了以往第二种方法。</p><p>但发邮件给移民局来更新护照信息有什么坏处呢？</p><p>慢！！令人发指的慢！！！自从929邮箱被作为官方immiaccount替代品之后，效率疯狂降低，官方邮箱的接收更是附件数量和大小都有限制，现在的929邮箱官方声明是“Up to 4 weeks”——这怎么忍！一个月的时间，黄花菜都凉了！</p><p>于是，为什么会有这种替代品呢？<br>替代品替代品，意思很明白，澳洲政府希望大家其实是去用immiaccount的。</p><p>出于各种特殊的原因，immiaccount有可能“没法使用”，这里先提一个问题：如果immiaccount真的那么多bug，政府可能会首推它么？</p><p>那么不能使用immiaccount的情况有哪些呢？</p><p>澳大利亚签证分为两种途径——一种是通过移民局官方系统immiaccount申请的签证——在穷游网上有很多“网签”就是这类。网签的好处在于它可以完全在家足不出户就完成签证申请，不需要跑大使馆，不需要邮寄材料，连财产证明都是可以打开网上银行直接下载个PDF流水当证明的。而且，关键是售后全呀！不用天天傻逼兮兮地等移民局电话，中介费完全省了，如果你护照丢了，立刻登录immiaccount就改好了，超方便有没有！</p><p>这里就要说到另一种途径——也是最传统的途径——中介申请了。通过中介/澳洲大使馆申请下来的签证，它们在官方签证系统有你的记录，这时，你需要Import你的签证到immiaccount，也就是Import application。顺便一提，已完成application的签证也算的。关键来了：如果你是移民签证，或者你是别的什么签证，但是你不是主申请人，那么你需要填的是主申请人的信息而不是你的信息。你的信息资料是在主申请人为单位的Group之下的。在immiaccount点Import Application，然后reference number是你的IMMI Grant Notification（正签信）上的Transaction reference number，Main Applicant Detail里填生日，然后travel document number填护照，country of travel document护照是哪国就填哪国，这样子你就可以import以主申请人为单位的一个family了。然后找到update details，然后change of passport details（这些和网上的都大同小异啦），记得不要选“丢失”，直接选broken就好，不然丢失的是要发929表到官方邮箱的。</p><p>如果你找不到以上需要的信息怎么办呢？那说明你没有好好看正签信。（大雾）</p><p>总之，去完新西兰我可能会写一篇新西兰游记（大概吧）</p><p>（咕咕咕）</p>]]></content>
+    <content type="html"><![CDATA[<p>已经……好久没用过hexo写博客了……可能都已经快忘记怎么使用hexo了……</p><p>这几天在忙很多事情，更新护照，更新签证，新西兰计划，驾考……还有一堆需要置备的东西（x</p><p>之前我的护照丢了，所以我重新在悉尼大使馆补办了一本新的护照，于是我需要把我的新护照更新到我的澳洲签证上。<br>这个几乎已经是老生常谈了，但是其实也有一些值得一说的点——</p><p>首先，根据2019年4月5号的情况来看，把新护照更新到澳洲签证上有两种方法：</p><ol><li>使用澳洲移民局官方签证管理系统Immiaccount</li><li>填写929信息更新表格，并将表格与新旧护照信息一并发送至<a href="mailto:&#57;&#x32;&#x39;&#x40;&#104;&#x6f;&#x6d;&#x65;&#x61;&#102;&#102;&#97;&#x69;&#x72;&#115;&#x2e;&#x63;&#x6f;&#109;&#x2e;&#97;&#x75;">&#57;&#x32;&#x39;&#x40;&#104;&#x6f;&#x6d;&#x65;&#x61;&#102;&#102;&#97;&#x69;&#x72;&#115;&#x2e;&#x63;&#x6f;&#109;&#x2e;&#97;&#x75;</a></li></ol><p>先说后面一种。<br>929邮箱一直是个很神奇的存在——在一两年前更新护照的方法一种是immiaccount，另一种则是让你邮寄到移民局……这谁有这个功夫啊，但移民局邮箱作为一种特殊渠道，一直以半公开的形式流传于民间。直到这一两年，澳洲重组政府部门，组建内政部——这个部门其实更是个神奇的存在，一手遮天，大权独揽……不过不展开太多。于是，移民局邮箱便正式替代了以往第二种方法。</p><p>但发邮件给移民局来更新护照信息有什么坏处呢？</p><p>慢！！令人发指的慢！！！自从929邮箱被作为官方immiaccount替代品之后，效率疯狂降低，官方邮箱的接收更是附件数量和大小都有限制，现在的929邮箱官方声明是“Up to 4 weeks”——这怎么忍！一个月的时间，黄花菜都凉了！</p><p>于是，为什么会有这种替代品呢？<br>替代品替代品，意思很明白，澳洲政府希望大家其实是去用immiaccount的。</p><p>出于各种特殊的原因，immiaccount有可能“没法使用”，这里先提一个问题：如果immiaccount真的那么多bug，政府可能会首推它么？</p><p>那么不能使用immiaccount的情况有哪些呢？</p><p>澳大利亚签证分为两种途径——一种是通过移民局官方系统immiaccount申请的签证——在穷游网上有很多“网签”就是这类。网签的好处在于它可以完全在家足不出户就完成签证申请，不需要跑大使馆，不需要邮寄材料，连财产证明都是可以打开网上银行直接下载个PDF流水当证明的。而且，关键是售后全呀！不用天天傻逼兮兮地等移民局电话，中介费完全省了，如果你护照丢了，立刻登录immiaccount就改好了，超方便有没有！</p><p>这里就要说到另一种途径——也是最传统的途径——中介申请了。通过中介/澳洲大使馆申请下来的签证，它们在官方签证系统有你的记录，这时，你需要Import你的签证到immiaccount，也就是Import application。顺便一提，已完成application的签证也算的。关键来了：如果你是移民签证，或者你是别的什么签证，但是你不是主申请人，那么你需要填的是主申请人的信息而不是你的信息。你的信息资料是在主申请人为单位的Group之下的。在immiaccount点Import Application，然后reference number是你的IMMI Grant Notification（正签信）上的Transaction reference number，Main Applicant Detail里填生日，然后travel document number填护照，country of travel document护照是哪国就填哪国，这样子你就可以import以主申请人为单位的一个family了。然后找到update details，然后change of passport details（这些和网上的都大同小异啦），记得不要选“丢失”，直接选broken就好，不然丢失的是要发929表到官方邮箱的。</p><p>如果你找不到以上需要的信息怎么办呢？那说明你没有好好看正签信。（大雾）</p><p>总之，去完新西兰我可能会写一篇新西兰游记（大概吧）</p><p>（咕咕咕）</p>]]></content>
     
     
     <summary type="html">新西兰-出发前——immiaccount使用教程（澳洲签证护照信息更新攻略）</summary>

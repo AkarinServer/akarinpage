@@ -298,13 +298,6 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/object-Object/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.akarin.moe/tags/Authentication/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -326,6 +319,13 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/tags/Fix/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/tags/Discourse/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -334,13 +334,6 @@
   
   <url>
     <loc>https://www.akarin.moe/tags/SAML/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.akarin.moe/tags/Fix/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -396,14 +389,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Microsoft-Surface/</loc>
+    <loc>https://www.akarin.moe/tags/Windows-10/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Windows-10/</loc>
+    <loc>https://www.akarin.moe/tags/Microsoft-Surface/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -494,14 +487,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Ubuntu/</loc>
+    <loc>https://www.akarin.moe/tags/ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/ubuntu/</loc>
+    <loc>https://www.akarin.moe/tags/Ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -511,6 +504,13 @@
   
   <url>
     <loc>https://www.akarin.moe/categories/Australia/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.akarin.moe/categories/Australia/VoWiFi/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -531,14 +531,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Discourse/</loc>
+    <loc>https://www.akarin.moe/categories/Fix/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Fix/</loc>
+    <loc>https://www.akarin.moe/categories/Discourse/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -573,13 +573,6 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Bilibili/UWP/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.akarin.moe/categories/%E7%B1%B3%E5%AE%B6%E6%89%AB%E5%9C%B0%E6%9C%BA%E5%99%A8%E4%BA%BA/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -594,6 +587,13 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/categories/Bilibili/UWP/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/categories/Nextcloud/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -601,7 +601,7 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Discourse/SAML/</loc>
+    <loc>https://www.akarin.moe/categories/Windows-10/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -615,7 +615,7 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Windows-10/</loc>
+    <loc>https://www.akarin.moe/categories/Discourse/SAML/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -664,21 +664,7 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Synology/NAS/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.akarin.moe/categories/hexo/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.akarin.moe/categories/Ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -692,7 +678,21 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/categories/Synology/NAS/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/categories/hexo/OneDrive/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.akarin.moe/categories/Ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

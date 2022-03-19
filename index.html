@@ -176,13 +176,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -309,6 +309,19 @@
 
       <time title="创建时间：2022-03-20 01:10:21" itemprop="dateCreated datePublished" datetime="2022-03-20T01:10:21+08:00">2022-03-20</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Australia/" itemprop="url" rel="index"><span itemprop="name">Australia</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Australia/VoWiFi/" itemprop="url" rel="index"><span itemprop="name">VoWiFi</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -320,54 +333,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>熟悉澳洲御三家运营商的可能了解一点，截至2022年3月20日，御三家的情况如下：<br>Telstra：</p>
-<ul>
-<li>PrePaid eSIM不可用 （由于所谓的系统升级）</li>
-<li>PrePaid国际漫游不可用 （由于所谓的系统升级）</li>
-<li>PrePaid VoWiFi可用（且海外IP同样可用）</li>
-<li>没有很低价的套餐</li>
-</ul>
-<p>Optus：</p>
-<ul>
-<li>PrePaid eSIM可用</li>
-<li>PrePaid国际漫游可用</li>
-<li>PrePaid VoWiFi可用（不可用于海外）</li>
-<li>有每日仅1刀的eSIM套餐</li>
-</ul>
-<p>Vodafone AU：</p>
-<ul>
-<li>PrePaid eSIM可用</li>
-<li>PrePaid国际漫游可用</li>
-<li>PrePaid VoWiFi可用（不可用于海外）</li>
-<li>有每年仅10刀的eSIM套餐</li>
-</ul>
-<p>我们简单复盘一下这三家：<br>Telstra能直接海外VoWiFi，但是暂时不支持实体卡切换eSIM。且没有很低价的保号套餐。<br>Optus和Vodafone AU能海外漫游且都能正常实体卡切换eSIM，并且Optus支持手机直接开通eSIM功能。<br>但与Vodafone AU比起来，Optus的每日1刀套餐会过期，且理论上是3个月后还是6个月后Optus会收回这个号码。相比之下，Vodafone AU一年10刀的保号就显得很稳。</p>
-<p>现在我的情况是，人在中国，且需要用到VoWiFi用于打澳洲电话，甚至利用VoWiFi直接拨打海外电话，套餐内包含的话是直接免费的。</p>
-<p>你要问我在中国连回澳洲打VoWiFi电话支持不支持，我说支持，我就明确告诉你这一点。但你们又不高兴，一定要问我怎么弄（</p>
-<p>首先，OSI Model分为七层，第七层为应用层（Application Layer），第三层为网络层（Network Layer）。<br>所有Socks5，HTTP/HTTPS，什么什么mess之类的，或者木马之类的协议，都是跑在第七层，它们属于应用层的部分（Application Layer）。<br>第三层的都是IPSec，OpenVPN，WireGuard之类的，这些是跑在第三层的网络层（Network Layer）的。</p>
-<p>我为什么要提这一点，因为我现在是UDP VoIP，我怎么能不跑在第三层的网络层？？？网络的世界，要按照OSI Model去运转，去连接……</p>
-<p>一言以蔽之就是，VoWiFi必须跑在第三层才能连通，在第七层它是无法与运营商服务器进行协商的。</p>
-<p>所以我们必须用VPN，而不是Proxy。也就是说，我们的选择必须是“VPN”，而不是”Proxy”。</p>
-<p>所以，所有的第七层的代理工具都是不可用的！</p>
-<p>好了扯了这么多我就直接告诉你怎么用WireGuard弄。</p>
-<p>为什么不选OpenVPN/IPSec？首先是这俩吧基本上连不出去。其次是这俩配置贼nm麻烦……算了吧真的饶了我我只想打个电话。</p>
-<p><strong>其次我强调一次，“WireGuard的安装和使用条件是比较苛刻的。因此我不建议在生产系统里安装和使用 WireGuard，除非你知道自己在做什么。” WireGuard直接作用于系统内核，所以你最好是开一个新的虚拟机或者什么小鸡去搞这个东西，它是需要修改Kernel的。</strong></p>
-<p>开个澳洲小鸡，我用的Vultr，然后直接网上找个一键脚本，安装。</p>
-<p>然后它会给你一个 client.conf 的文件，打开。</p>
-<p>然后我的路由器用的AX3600，刷了OpenWRT（对，我强烈建议你专门有一个路由器搞这个事情），然后OpenWRT设置里选择网络-接口，新建接口，然后选择WireGuard VPN。</p>
-<p>然后参考这篇文章：<a target="_blank" rel="noopener" href="https://www.ioiox.com/archives/143.html">https://www.ioiox.com/archives/143.html</a></p>
-<p>将 client.conf 里</p>
-<p>[Interface] 的：<br>PrivateKey<br>Address</p>
-<p>和</p>
-<p>[Peer] 的：<br>PublicKey<br>Endpoint<br>AllowedIPs<br>PersistentKeepalive</p>
-<p>根据教程填入对应的选项。</p>
-<p>然后防火墙选项直接选择WAN。</p>
-<p>保存，查看WireGuard选项。看看有没有连通。</p>
-<p>最后打开 ip111.cn 这个测IP的网站，如果你发现你的IP已经是澳洲了，我们就离成功只差最后一步了。</p>
-<p>iPhone的定位里关闭定位（后续成功了可只关闭WiFi通话的定位），关闭所有WiFi的自动连接，开启飞行模式，然后重启iPhone，连接这个土澳IP的WiFi，最后最后！！！蜂窝网络，点进去号码，关闭WiFi通话并重新打开WiFi通话。</p>
-<p>这时候不出意外的话，右上角下拉，你就会发现WiFi Calling的标志了。</p>
-<p>如果有任何问题欢迎在底下留言。Enjoy~</p>
-
+          <p>在海外通过隧道连接澳洲服务器并使用Optus或Vodafone AU的VoWiFi。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/20/Australia-WiFi-Calling/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
