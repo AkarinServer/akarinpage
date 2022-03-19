@@ -298,6 +298,13 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/tags/object-Object/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/tags/Authentication/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -389,14 +396,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Windows-10/</loc>
+    <loc>https://www.akarin.moe/tags/Microsoft-Surface/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Microsoft-Surface/</loc>
+    <loc>https://www.akarin.moe/tags/Windows-10/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,14 +608,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Windows-10/</loc>
+    <loc>https://www.akarin.moe/categories/Microsoft/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Microsoft/</loc>
+    <loc>https://www.akarin.moe/categories/Windows-10/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
