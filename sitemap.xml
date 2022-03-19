@@ -319,13 +319,6 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Fix/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.akarin.moe/tags/Discourse/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -334,6 +327,13 @@
   
   <url>
     <loc>https://www.akarin.moe/tags/SAML/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.akarin.moe/tags/Fix/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -424,6 +424,13 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/tags/UnionPay/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/tags/Microsft-Surface/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -432,13 +439,6 @@
   
   <url>
     <loc>https://www.akarin.moe/tags/Type-Cover/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.akarin.moe/tags/UnionPay/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -487,14 +487,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/ubuntu/</loc>
+    <loc>https://www.akarin.moe/tags/Ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/tags/Ubuntu/</loc>
+    <loc>https://www.akarin.moe/tags/ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -531,14 +531,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Fix/</loc>
+    <loc>https://www.akarin.moe/categories/Discourse/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Discourse/</loc>
+    <loc>https://www.akarin.moe/categories/Fix/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,6 +601,13 @@
   </url>
   
   <url>
+    <loc>https://www.akarin.moe/categories/Discourse/SAML/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.akarin.moe/categories/Windows-10/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -609,13 +616,6 @@
   
   <url>
     <loc>https://www.akarin.moe/categories/Microsoft/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.akarin.moe/categories/Discourse/SAML/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -636,14 +636,14 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/Type-Cover/</loc>
+    <loc>https://www.akarin.moe/categories/UnionPay/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/UnionPay/</loc>
+    <loc>https://www.akarin.moe/categories/Type-Cover/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -671,13 +671,6 @@
   </url>
   
   <url>
-    <loc>https://www.akarin.moe/categories/ubuntu/</loc>
-    <lastmod>2022-03-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.akarin.moe/categories/Synology/NAS/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
@@ -693,6 +686,13 @@
   
   <url>
     <loc>https://www.akarin.moe/categories/Ubuntu/</loc>
+    <lastmod>2022-03-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.akarin.moe/categories/ubuntu/</loc>
     <lastmod>2022-03-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
